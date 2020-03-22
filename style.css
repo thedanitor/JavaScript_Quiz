@@ -1,0 +1,18 @@
+.nav-item {
+    color: #6f42c1;
+    font-size: 18px;
+}
+
+.card {
+    align: center;
+}
+
+.btn, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary{
+    background-color: rgb(71, 45, 105);
+    border-color: rgb(71, 45, 105);
+}
+
+.btn:hover {
+    background-color: rgb(112, 85, 148);
+    border-color: rgb(112, 85, 148);
+}
