@@ -1,3 +1,8 @@
+var startButton = document.getElementById("start-quiz");
+
+
+startButton.addEventListener("click", timer());
+
 // create countdown timer function
 function timer () {
     // start time at 75 seconds
@@ -25,6 +30,6 @@ function timer () {
     }, 1000)
 }
 // call timer function
-timer();
+
 
 
