@@ -1,7 +1,7 @@
 var startButton = document.getElementById("start-quiz");
+var cardBodyEl = document.querySelector(".card-body");
 
-
-startButton.addEventListener("click", timer());
+console.log(cardBodyEl);
 
 // create countdown timer function
 function timer () {
@@ -31,5 +31,7 @@ function timer () {
 }
 // call timer function
 
+startButton.addEventListener("click", timer());
 
 
+/// Can change to next questions by selecting card-body class and changing innerHTML.
