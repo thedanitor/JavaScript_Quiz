@@ -17,7 +17,7 @@
         </div>
     </nav>
     <div class="card w-50 mx-auto">
-        <div class="card-body text-center">
+        <div class="card-body text-center" id="start-screen">
             <h3 class="card-title">Coding Quiz Challenge</h3>
             <p class="card-text">
               Try to answer the following code-related questions within the time limit. 
@@ -26,6 +26,10 @@
             <div class="button-stack">
                 <button id="start-quiz" class="btn btn-primary" type="submit">Start Quiz</button>
             </div>
+        </div>
+        <div class="card-body text-center hide" id="firstQuestion">
+            <h3 id="question">first q.</h3>
+            <div id="questionChoice"></div>
         </div>
       </div>
     <script src="script.js"></script>

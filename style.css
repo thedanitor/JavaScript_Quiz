@@ -16,3 +16,15 @@
     background-color: rgb(112, 85, 148);
     border-color: rgb(112, 85, 148);
 }
+
+.hide {
+    display: none;
+}
+
+.unhide {
+    display: block;
+}
+
+.choicebtn {
+    display: block;
+}

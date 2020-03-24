@@ -1,10 +1,55 @@
 var startButton = document.getElementById("start-quiz");
 var cardBodyEl = document.querySelector(".card-body");
+var start = document.getElementById("start-screen");
+var firstQ = document.getElementById("firstQuestion");
+var q1 = document.getElementById("question");
+var choice = document.getElementById("questionChoice");
 
-console.log(cardBodyEl);
+var questionList = [
+    {
+      title: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "alerts"
+    },
+    {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      }
+]
+var questionIndex = 0;
+
+function populateQuestion () {
+    var currentQuestion = questionList[questionIndex];
+    console.log(currentQuestion);
+    
+    q1.textContent = currentQuestion.title;
+    // choice.innerHTML = "";
+
+
+    
+    currentQuestion.choices.forEach(function(choice,i){
+        //create button
+        var qChoice = document.createElement("button");
+        // set value of button to choice
+        qChoice.setAttribute("value", choice);
+        qChoice.setAttribute("class", "choicebtn");
+        // set text of button to current choice
+        qChoice.textContent = choice;
+        console.log(qChoice);
+        // displaying on HTML page
+        choice.appendChild(qChoice);
+       
+    })
+}
 
 // create countdown timer function
 function timer () {
+
+    start.setAttribute("class", "hide");
+
+    firstQ.removeAttribute("class");
+    // firstQ.textContent = "hi";
     // start time at 75 seconds
     var time = 10;
     // assign timer element to <div class="time">
@@ -24,14 +69,17 @@ function timer () {
             // clear countdown interval
             clearInterval(countdown);
             // begin score function
-            score();
+            // score();
         }
         // set interval at 1000 ms which = 1 second
     }, 1000)
+
+    populateQuestion();
 }
 // call timer function
 
-startButton.addEventListener("click", timer());
+// startButton.onclick = timer;
+startButton.addEventListener("click", timer);
 
 
 /// Can change to next questions by selecting card-body class and changing innerHTML.
