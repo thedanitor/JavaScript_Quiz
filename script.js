@@ -3,7 +3,7 @@ var cardBodyEl = document.querySelector(".card-body");
 var start = document.getElementById("start-screen");
 var firstQ = document.getElementById("firstQuestion");
 var q1 = document.getElementById("question");
-var choice = document.getElementById("questionChoice");
+var choiceEl = document.getElementById("questionChoice");
 
 var questionList = [
     {
@@ -33,12 +33,12 @@ function populateQuestion () {
         var qChoice = document.createElement("button");
         // set value of button to choice
         qChoice.setAttribute("value", choice);
-        qChoice.setAttribute("class", "choicebtn");
+        qChoice.setAttribute("class", "btn");
         // set text of button to current choice
         qChoice.textContent = choice;
         console.log(qChoice);
         // displaying on HTML page
-        choice.appendChild(qChoice);
+        choiceEl.appendChild(qChoice);
        
     })
 }
