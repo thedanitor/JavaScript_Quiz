@@ -10,11 +10,14 @@
 .choicebtn, .btn, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn:active, .btn-primary.active, .open .dropdown-toggle.btn-primary{
     background-color: rgb(71, 45, 105);
     border-color: rgb(71, 45, 105);
+    color: white;
+    margin: 5px;
 }
 
 .btn:hover, .choicebtn:hover {
     background-color: rgb(112, 85, 148);
     border-color: rgb(112, 85, 148);
+    color: white;
 }
 
 .hide {

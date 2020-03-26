@@ -2,46 +2,64 @@ var startButton = document.getElementById("start-quiz");
 var cardBodyEl = document.querySelector(".card-body");
 var start = document.getElementById("start-screen");
 var firstQ = document.getElementById("firstQuestion");
-var q1 = document.getElementById("question");
+var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
+var time = 75;
+var questionIndex = 0;
 
 var questionList = [
-    {
-      title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
-    },
+    //question 1
     {
         title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
-      }
+        choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+        answer: "1. alerts"
+    },
+    //question 2
+    {
+        title: "The condition of an if / else statement is enclosed within ___.",
+        choices: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+        answer: "2. curly brackets"
+    },
+    //question 3
+    {
+        title: "Arrays in JavaScript can be used to store ___.",
+        choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+        answer: "4. all of the above"
+    },
+    //question 4
+    {
+        title: "String values must be enclosed with ___ when being assigned to variables.",
+        choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        answer: "3. quotes"
+    },
+    //question 5
+    {
+        title: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices: ["1. JavaScript", "2. terminal / bash", "3. for loops", "4. console.log"],
+        answer: "4. console.log"
+    }
 ]
-var questionIndex = 0;
+
 
 function populateQuestion () {
     var currentQuestion = questionList[questionIndex];
-    console.log(currentQuestion);
+    // console.log(currentQuestion);
     
-    q1.textContent = currentQuestion.title;
-    // choice.innerHTML = "";
-
-
+    currQuest.textContent = currentQuestion.title;
     
     currentQuestion.choices.forEach(function(choice,i){
         //create button
         var qChoice = document.createElement("button");
         // set value of button to choice
         qChoice.setAttribute("value", choice);
-        qChoice.setAttribute("class", "btn");
+        // set class of button to apply CSS styles
+        qChoice.setAttribute("class", "btn choicebtn");
         // set text of button to current choice
         qChoice.textContent = choice;
-        console.log(qChoice);
         // displaying on HTML page
-        choiceEl.appendChild(qChoice);
-       
+        choiceEl.appendChild(qChoice);       
     })
-}
+} 
 
 // create countdown timer function
 function timer () {
@@ -49,9 +67,8 @@ function timer () {
     start.setAttribute("class", "hide");
 
     firstQ.removeAttribute("class");
-    // firstQ.textContent = "hi";
     // start time at 75 seconds
-    var time = 10;
+    time = 75;
     // assign timer element to <div class="time">
     var timerEl = document.querySelector(".time");
     // set the text content to "Time: " and display the seconds remaining
@@ -65,7 +82,7 @@ function timer () {
         // when time reaches zero
         if (time === 0) {
             // change text in timer element to nothing
-            timerEl.textContent = "";
+            timerEl.textContent = "Time: 0";
             // clear countdown interval
             clearInterval(countdown);
             // begin score function
