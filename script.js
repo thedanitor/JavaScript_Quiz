@@ -6,6 +6,9 @@ var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
 var time = 75;
 var questionIndex = 0;
+var score = 0;
+var highscore = 0;
+
 
 var questionList = [
     //question 1
@@ -42,24 +45,59 @@ var questionList = [
 
 
 function populateQuestion () {
+    // currentQuestion gets object of questionList array (starting at index [0]) 
     var currentQuestion = questionList[questionIndex];
-    // console.log(currentQuestion);
-    
+    // set textContent of <h3> with ID question to title of currentQuestion
     currQuest.textContent = currentQuestion.title;
-    
+    // forEach loop which takes input of choice and index number
     currentQuestion.choices.forEach(function(choice,i){
         //create button
-        var qChoice = document.createElement("button");
+        var choiceButton = document.createElement("button");
         // set value of button to choice
-        qChoice.setAttribute("value", choice);
+        choiceButton.setAttribute("value", choice);
         // set class of button to apply CSS styles
-        qChoice.setAttribute("class", "btn choicebtn");
+        choiceButton.setAttribute("class", "btn choicebtn");
         // set text of button to current choice
-        qChoice.textContent = choice;
+        choiceButton.textContent = choice;
         // displaying on HTML page
-        choiceEl.appendChild(qChoice);       
-    })
+        choiceEl.appendChild(choiceButton);       
+    });
 } 
+// when element inside choiceEl is clicked
+choiceEl.addEventListener("click", function(event){
+    var element = event.target;
+    // if element is button
+    if (element.matches("button") === true) {
+        //run scoring function
+
+        //update current question by increasing questionIndex by one
+        questionIndex++;
+        questionChoice.innerHTML = "";
+        if (questionIndex < questionList.length){
+            populateQuestion();
+        // } else {
+
+        }
+        
+
+
+        // var currentQuestion = questionList[questionIndex + 1];
+        // // console.log(currentQuestion);
+        // populateQuestion();
+    }
+
+});
+
+// function scoring () {
+// // when element inside choiceEl is clicked
+// choiceEl.addEventListener("click", function(event){
+//     var element = event.target;
+//     // if element is button
+//     if (element.matches("button") === true) {
+
+
+// }
+
 
 // create countdown timer function
 function timer () {
