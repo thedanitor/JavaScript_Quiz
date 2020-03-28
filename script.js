@@ -1,5 +1,7 @@
 var startButton = document.getElementById("start-quiz");
 var cardBodyEl = document.querySelector(".card-body");
+var cardTitleEl = document.querySelector(".card-title");
+var cardTextEl = document.querySelector(".card-text");
 var start = document.getElementById("start-screen");
 var firstQ = document.getElementById("firstQuestion");
 var currQuest = document.getElementById("question");
@@ -7,7 +9,9 @@ var choiceEl = document.getElementById("questionChoice");
 var time = 75;
 var questionIndex = 0;
 var score = 0;
+// need to pull from local storage
 var highscore = 0;
+// var currentTime = time;
 
 var questionList = [
     //question 1
@@ -79,7 +83,7 @@ choiceEl.addEventListener("click", function(event){
     if (element.matches("button") === true) {
         //run scoring function
 
-        //scoring();
+        scoring();
         //update current question by increasing questionIndex by one
         questionIndex++;
         //remove everything in innerHTML to make room for new question
@@ -97,10 +101,7 @@ choiceEl.addEventListener("click", function(event){
 
 });
 
-// function scoring () {
-
-// need to check if choices and answer are the same
-// need to look at text in specific button clicked
+function scoring () {
 
 //1. listen for button click
 //2. figure out which button clicked
@@ -109,23 +110,38 @@ choiceEl.addEventListener("click", function(event){
 //5. if does not match: time = time -10;
 
 
-// // when element inside choiceEl is clicked
-// choiceEl.addEventListener("click", function(event){
-//     var element = event.target;
-//     // if element is button
-//     if (element.matches("button") === true) {
+// when element inside choiceEl is clicked
+choiceEl.addEventListener("click", function(event){
+    var element = event.target;
+    // if element is button
+    if (element.matches("button") === true) {
+    console.log(element.textContent);
+   
+        // if (element.textContent === questionList[questionIndex].answer){
+        //     console.log("correct");
+        // }
+    console.log(questionList[questionIndex].answer)    
+    console.log(element.textContent === questionList[questionIndex].answer);    
+    
 
-
-// }
+    }
+});
+}
 
 // function endScore () {
-    //1. replace .card-title text with "All done!"
-    //2. replace .card-text with "Your final score is + time"
-    //3. add form to enter initials
-    //4. add submit button that takes us to highscrore screen
+//     //1. replace .card-title text with "All done!"
+//     var scoreTitle = cardTitleEl.textContent = "All done!";
+//     //2. replace .card-text with "Your final score is + time"
+//     var scoreText = cardTextEl.innerHTML = "<p>'Your final score is ' + time + '.'</p><br> Enter Initials: ";
+//     //3. add form to enter initials
+//     // var initials = cardTitleEl.createElement("form"); 
+//     //4. add submit button that takes us to highscrore screen
 
+
+//     cardTitleEl.appendChild(scoreTitle);
+//     cardTextEl.appendChild(scoreText);
+//     // cardTextEl.appendChild(initails);
 // }
-
 
 // create countdown timer function
 function timer () {
@@ -165,4 +181,3 @@ function timer () {
 startButton.addEventListener("click", timer);
 
 
-/// Can change to next questions by selecting card-body class and changing innerHTML.
