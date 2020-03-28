@@ -9,7 +9,6 @@ var questionIndex = 0;
 var score = 0;
 var highscore = 0;
 
-
 var questionList = [
     //question 1
     {
@@ -62,6 +61,16 @@ function populateQuestion () {
         // displaying on HTML page
         choiceEl.appendChild(choiceButton);       
     });
+    // correct gets the answer object from each question
+    // var correct = questionList[questionIndex].answer;
+    //     console.log(correct);
+
+    //     // want to set attribute of correct response to true...
+    //     // how do I 
+    //     console.log(questionList[questionIndex].choices[i]);
+    // if (questionList[questionIndex].choices[i] === correct) {
+    //     choiceButton.setAttribute("true", "true");
+    // }
 } 
 // when element inside choiceEl is clicked
 choiceEl.addEventListener("click", function(event){
@@ -70,31 +79,50 @@ choiceEl.addEventListener("click", function(event){
     if (element.matches("button") === true) {
         //run scoring function
 
+        //scoring();
         //update current question by increasing questionIndex by one
         questionIndex++;
+        //remove everything in innerHTML to make room for new question
         questionChoice.innerHTML = "";
         if (questionIndex < questionList.length){
+            // if there are still more questions, populate questions
             populateQuestion();
+            // else, go to end score
         // } else {
+            // endScore();
 
         }
         
-
-
-        // var currentQuestion = questionList[questionIndex + 1];
-        // // console.log(currentQuestion);
-        // populateQuestion();
     }
 
 });
 
 // function scoring () {
+
+// need to check if choices and answer are the same
+// need to look at text in specific button clicked
+
+//1. listen for button click
+//2. figure out which button clicked
+//3. get text of button
+//4. check if text of button matches answer
+//5. if does not match: time = time -10;
+
+
 // // when element inside choiceEl is clicked
 // choiceEl.addEventListener("click", function(event){
 //     var element = event.target;
 //     // if element is button
 //     if (element.matches("button") === true) {
 
+
+// }
+
+// function endScore () {
+    //1. replace .card-title text with "All done!"
+    //2. replace .card-text with "Your final score is + time"
+    //3. add form to enter initials
+    //4. add submit button that takes us to highscrore screen
 
 // }
 
@@ -119,12 +147,12 @@ function timer () {
         timerEl.textContent = "Time: " + time;
         // when time reaches zero
         if (time === 0) {
-            // change text in timer element to nothing
+            // change text in timer element to 0
             timerEl.textContent = "Time: 0";
             // clear countdown interval
             clearInterval(countdown);
-            // begin score function
-            // score();
+            // begin endScore function
+            // endScore();
         }
         // set interval at 1000 ms which = 1 second
     }, 1000)
