@@ -5,6 +5,7 @@ var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
 var time = 75;
 var questionIndex = 0;
+var score = 0;
 // need to pull from local storage
 var highscore = 0;
 
@@ -68,24 +69,34 @@ choiceEl.addEventListener("click", function (event) {
             if (questionIndex < questionList.length-1) {
                 questionIndex++;
             renderQuestion(questionList[questionIndex]);
-        }
+            } 
+            else if (time <= 0) {
+                // score = time;
+                // clearInterval(countdown);
+                endScore();
+            } else {
+                // score = time;
+                // clearInterval(countdown);
+                endScore();
+            }
     }
 });
 
 function timer() {
     start.setAttribute("class", "hide");
     firstQ.removeAttribute("class");
-    time = 5;
+    time = 25;
     var timerEl = document.querySelector(".time");
     timerEl.textContent = "Time: " + time;
-    var countdown = setInterval(function () {
+    countdown = setInterval(function () {
         time--;
         timerEl.textContent = "Time: " + time;
-        if (time <= 0) {
-            timerEl.textContent = "Time: 0";
-            clearInterval(countdown);
-            endScore();
-        }
+        // if (time <= 0) {
+        //     timerEl.textContent = "Time: 0";
+            // score = time;
+            // clearInterval(countdown);
+            // endScore();
+        // }
     }, 1000)
     renderQuestion(questionList[questionIndex]);
 }
@@ -94,12 +105,18 @@ startButton.addEventListener("click", timer);
 
 
 function endScore () {
+    if (time <= 0) {
+        score = 0;
+    } else {
+        score = time;
+    }
+    clearInterval(countdown);
     questionChoice.innerHTML = ""
     currQuest.innerHTML = "";
     var scoreScreen = document.getElementById("score-screen");
     scoreScreen.setAttribute("class", "unhide")
     var scoreText = document.getElementById("score-text");
-    scoreText.textContent = "Your final score is " + time + ".";
+    scoreText.textContent = "Your final score is " + score + ".";
 } 
 
 function highscore () {
