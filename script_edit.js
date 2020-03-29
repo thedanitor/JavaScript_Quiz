@@ -3,7 +3,7 @@ var start = document.getElementById("start-screen");
 var firstQ = document.getElementById("firstQuestion");
 var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
-var time = 75;
+var time;
 var questionIndex = 0;
 var score = 0;
 // need to pull from local storage
@@ -43,6 +43,19 @@ var questionList = [
     }
 ]
 
+function timer() {
+    start.setAttribute("class", "hide");
+    firstQ.removeAttribute("class");
+    time = 5;
+    var timerEl = document.querySelector(".time");
+    timerEl.textContent = "Time: " + time;
+    countdown = setInterval(function () {
+        time--;
+        timerEl.textContent = "Time: " + time;
+    }, 1000)
+    renderQuestion(questionList[questionIndex]);
+}
+
 function renderQuestion(currentQuestion) {
   
     currQuest.textContent = currentQuestion.title;
@@ -65,51 +78,17 @@ choiceEl.addEventListener("click", function (event) {
         questionChoice.innerHTML = "";
             if (element.textContent !== questionList[questionIndex].answer){
                 time = time - 10;
-            }
-            if (questionIndex < questionList.length-1) {
+            } if (questionIndex < questionList.length-1) {
                 questionIndex++;
             renderQuestion(questionList[questionIndex]);
-            } 
-            else if (time <= 0) {
-                // score = time;
-                // clearInterval(countdown);
-                endScore();
             } else {
-                // score = time;
-                // clearInterval(countdown);
                 endScore();
             }
     }
 });
 
-function timer() {
-    start.setAttribute("class", "hide");
-    firstQ.removeAttribute("class");
-    time = 25;
-    var timerEl = document.querySelector(".time");
-    timerEl.textContent = "Time: " + time;
-    countdown = setInterval(function () {
-        time--;
-        timerEl.textContent = "Time: " + time;
-        // if (time <= 0) {
-        //     timerEl.textContent = "Time: 0";
-            // score = time;
-            // clearInterval(countdown);
-            // endScore();
-        // }
-    }, 1000)
-    renderQuestion(questionList[questionIndex]);
-}
-
-startButton.addEventListener("click", timer);
-
-
 function endScore () {
-    if (time <= 0) {
-        score = 0;
-    } else {
-        score = time;
-    }
+    score = time;
     clearInterval(countdown);
     questionChoice.innerHTML = ""
     currQuest.innerHTML = "";
@@ -125,3 +104,5 @@ function highscore () {
     var highscoreScreen = document.getElementById("highscore-screen");
     highscoreScreen.setAttribute("class", "unhide")
 }
+
+startButton.addEventListener("click", timer);
