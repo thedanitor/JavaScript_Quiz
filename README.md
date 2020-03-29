@@ -2,6 +2,8 @@
 
 I created a simple quiz to employ the DOM manipulation techniques I recently learned.
 
+https://thedanitor.github.io/JavaScript_Quiz/
+
 ## Languages Used
 
 Using Bootstrap as a starting point, I created the HTML to house the JavaScript.
