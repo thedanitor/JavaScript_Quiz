@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Quiz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm">
-        <a class="nav-item nav-link" href="#">View Highscores</a> 
+        <a class="nav-item nav-link" href="#">View Highscores</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <div class="time"> Time: </div>
@@ -19,9 +22,9 @@
     <div class="card w-50 mx-auto">
         <div class="card-body text-center" id="start-screen">
             <h3 class="card-title">Coding Quiz Challenge</h3>
-            <p class="card-text">
-              Try to answer the following code-related questions within the time limit. 
-              Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            <p class="card-text" id="start-text">
+                Try to answer the following code-related questions within the time limit.
+                Keep in mind that incorrect answers will penalize your score/time by ten seconds!
             </p>
             <div class="button-stack">
                 <button id="start-quiz" class="btn btn-primary" type="submit">Start Quiz</button>
@@ -31,8 +34,37 @@
             <h3 id="question">first q.</h3>
             <div id="questionChoice"></div>
         </div>
-      </div>
+        <div class="card-body text-center hide" id="score-screen">
+            <h3 class="card-title">All Done!</h3>
+            <p class="card-text" id="score-text">
+            </p>
+            <p class="card-text" id="name-text">
+                Enter your initials:
+            </p>
+            <form>
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInput">Name</label>
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body text-center hide" id="highscore-screen">
+            <h3 class="card-title">Highscores</h3>
+            <ul id="highscore-list">
+            </ul>
+            <div class="button-stack">
+                <button id="back-btn" class="btn btn-primary" type="submit">Go Back</button>
+                <button id="clear-btn" class="btn btn-primary" type="submit">Clear</button>
+            </div>
+        </div>
+    </div>
     <!-- <script src="script.js"></script> -->
     <script src="script_edit.js"></script>
 </body>
+
 </html>

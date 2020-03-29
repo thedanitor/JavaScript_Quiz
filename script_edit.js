@@ -1,17 +1,13 @@
 var startButton = document.getElementById("start-quiz");
-var cardBodyEl = document.querySelector(".card-body");
-var cardTitleEl = document.querySelector(".card-title");
-var cardTextEl = document.querySelector(".card-text");
 var start = document.getElementById("start-screen");
 var firstQ = document.getElementById("firstQuestion");
 var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
 var time = 75;
 var questionIndex = 0;
-var score = 0;
 // need to pull from local storage
 var highscore = 0;
-// var currentTime = time;
+
 
 var questionList = [
     //question 1
@@ -100,25 +96,15 @@ startButton.addEventListener("click", timer);
 function endScore () {
     questionChoice.innerHTML = ""
     currQuest.innerHTML = "";
-    var scoreScreen = document.createElement("div");
-    questionChoice.appendChild(scoreScreen);
-    var scoreTitle = document.querySelector(".card-title");
-    scoreTitle.textContent = "All done!";
-    //2. replace .card-text with "Your final score is + time"
-    var scoreText = document.querySelector(".card-text");
+    var scoreScreen = document.getElementById("score-screen");
+    scoreScreen.setAttribute("class", "unhide")
+    var scoreText = document.getElementById("score-text");
     scoreText.textContent = "Your final score is " + time + ".";
-    var initialsEl = document.createElement("p");
-    cardTextEl.appendChild(initialsEl);
-    initialsEl.textContent = "Enter your initials :";
-    // var initials = 
-    // initials.textContent = "Enter your initials";
-    //3. add form to enter initials
-    // var initials = cardTitleEl.createElement("form"); 
-    //4. add submit button that takes us to highscrore screen
-    
-    scoreScreen.appendChild(scoreTitle);
-    scoreScreen.appendChild(scoreText);
-    // scoreScreen.appendChild(initials);
-
-
 } 
+
+function highscore () {
+    var scoreScreen = document.getElementById("score-screen");
+    scoreScreen.setAttribute("class", "hide")
+    var highscoreScreen = document.getElementById("highscore-screen");
+    highscoreScreen.setAttribute("class", "unhide")
+}
