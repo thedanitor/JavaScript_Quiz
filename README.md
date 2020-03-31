@@ -20,12 +20,14 @@ Once the Start button is pressed the home screen becomes hidden and the first of
 
 Each wrong answer deducts 10 seconds from the timer. The game is over once all five questions have been answered and the user's score is however many seconds are left on the clock. There is a game end screen to show the user their score and allow them to input their initials.
 
-*There was supposed to be a way to save their initials and score into a Highscore screen, but I could not work out the bugs in time. I will continue working on it and will be able to upload a final product at some point.
+User's initials and scores are saved into local storage and displayed on the highscore screen at the end of the game. Clear button will clear the highscores.
+
+*There are still a few bugs with the score and with highscore screen. Will continue debugging.
 
 ## Acknowledgement
 
-Author Dan Weikart would like to thank everyone in his UW Coding Bootcamp class for helping improve my understanding of HTML, CSS, and especially JavaScript.
+Author Dan Weikart would like to thank everyone in his UW Coding Bootcamp class for helping improve his understanding of HTML, CSS, and especially JavaScript.
 
-Special shoutout to instructor John Young and TA's Abdul Aziz and Ben Vaagen.
+Special shoutout to tutor Namita Shenai, instructor John Young and TA's Abdul Aziz and Ben Vaagen.
 
 
