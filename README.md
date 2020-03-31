@@ -2,6 +2,8 @@
 
 I created a simple quiz to employ the DOM manipulation techniques I recently learned.
 
+https://thedanitor.github.io/JavaScript_Quiz/
+
 ## Languages Used
 
 Using Bootstrap as a starting point, I created the HTML to house the JavaScript.
@@ -14,17 +16,11 @@ JavaScript was the main language of project as it makes the page interactive. I 
 
 Upon loading the page shows a home screen to introduce the quiz as well as a Start button to begin the question sequence.
 
-
-
 Once the Start button is pressed the home screen becomes hidden and the first of five questions appears. The answer options are displayed as buttons that, when clicked, will advance the user to the next question. A timer is also displayed which begins counting down from 75 seconds.
-
-
 
 Each wrong answer deducts 10 seconds from the timer. The game is over once all five questions have been answered and the user's score is however many seconds are left on the clock. There is a game end screen to show the user their score and allow them to input their initials.
 
-
 *There was supposed to be a way to save their initials and score into a Highscore screen, but I could not work out the bugs in time. I will continue working on it and will be able to upload a final product at some point.
-
 
 ## Acknowledgement
 
