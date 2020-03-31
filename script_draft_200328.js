@@ -4,16 +4,12 @@ var firstQ = document.getElementById("firstQuestion");
 var currQuest = document.getElementById("question");
 var choiceEl = document.getElementById("questionChoice");
 var highScoreScreen = document.getElementById("highscore-screen");
-var saveScore = document.getElementById("saveScorebtn");
-var hiScoreList = document.getElementById("highscore-list");
-var initialsEl = document.getElementById("inlineFormInput");
-var clear = document.getElementById("clear-btn");
-var goBack = document.getElementById("back-btn");
-var scoreName;
+var hiScoreList = document.getElementById("highscore-list")
 var time;
 var questionIndex = 0;
 var score = 0;
-
+// need to pull from local storage
+var highscore = 0;
 
 
 var questionList = [
@@ -104,38 +100,18 @@ function endScore () {
     scoreText.textContent = "Your final score is " + score + ".";
 } 
 
-startButton.addEventListener("click", timer);
-
-saveScore.addEventListener("click", function(event){
-    event.preventDefault();
+function highscore () {
     var scoreScreen = document.getElementById("score-screen");
     scoreScreen.setAttribute("class", "hide")
     var highscoreScreen = document.getElementById("highscore-screen");
     highscoreScreen.setAttribute("class", "unhide")
-    var initials = initialsEl.value.trim();
-    if (initials !== "") {
-      var highscores =
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
-      var newScore = {
-        hiScore: score, 
-        initials: initials
-      };
-      highscores.forEach(function (scorecard){
-        scoreName = document.createElement("li");
-        scoreName.textContent = "Score: " + scorecard.initials + "- " + scorecard.hiScore;
-        hiScoreList.append(scoreName);
-      })
-      highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
-    }
-})
+    scoreName = document.createElement("li");
+    scoreName.textContent = "New Score: " + score;
+    hiScoreList.append(scoreName);
+}
 
-clear.addEventListener("click", function(event){
+startButton.addEventListener("click", timer);
+highScoreScreen.addEventListener("click", function(event){
     event.preventDefault();
-    window.localStorage.removeItem("highscores");
-    window.location.reload();
-})
-
-goBack.addEventListener("click", function(){
-    window.location.reload();
-})
+    highscore();
+});
